@@ -39,7 +39,7 @@ composer require fogacasammuel/extractzip
 
 Para mais detalhes sobre como usar, veja uma pasta de exemplo no diretório do componente. Nela terá um exemplo de uso para cada classe. Ele funciona assim:
 
-#### User endpoint:
+#### Zip Usage:
 
 ```php
 <?php
@@ -51,6 +51,43 @@ use FogacaSammuel\ExtractZip\Zip;
 //Extraindo arquivo zip
 $zip = (new Zip(__DIR__ . "/testzip.zip", __DIR__))->execute()->finish();
 var_dump($zip->callback());
+```
+
+## Config Usage:
+
+#### Model file config.json
+O arquivo precisa ir na raiz do plugin zipado!
+
+```json
+[
+    {
+        "path": "/source/Boot/Config.php",
+        "rows": [
+            "define(\"VAR7\", \"var4\");",
+            "define(\"VAR8\", \"var5\");",
+            "define(\"VAR9\", \"var6\");"
+        ]
+    }
+]
+```
+
+Inciando a configuração pelo PHP
+
+```php
+<?php
+
+require "../vendor/autoload.php";
+
+use FogacaSammuel\ExtractZip\Config;
+
+$pathjson = __DIR__ . "/config.json";
+
+$config = (new Config($pathjson, __DIR__))->execute();
+if($config->callback()["error"]) {
+    echo $config->callback()["message"];
+}
+
+echo $config->callback()["message"];
 ```
 
 ## Contributing
