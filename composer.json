@@ -1,0 +1,26 @@
+{
+  "name": "fogacasammuel/extractzip",
+  "description": "Biblioteca responsável por gerenciar plugins dentro da plataforma Gestor",
+  "keywords": [
+    "sammuelfogaca"
+  ],
+  "homepage": "https://www.agenciaebenezer.com.br",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Samuel Fogaça",
+      "email": "sammuel.fogaca@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "ext-json": "*",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "FogacaSammuel\\ExtractZip\\": "src"
+    }
+  }
+}
