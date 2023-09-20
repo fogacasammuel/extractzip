@@ -2,13 +2,8 @@
 
 require "../vendor/autoload.php";
 
-use FogacaSammuel\ExtractZip\Config;
+use FogacaSammuel\ExtractZip\Zip;
 
-$pathjson = __DIR__ . "/config.json";
-
-$config = (new Config($pathjson, __DIR__))->execute();
-if($config->callback()["error"]) {
-    echo $config->callback()["message"];
-}
-
-echo $config->callback()["message"];
+//Extraindo arquivo zip
+(new Zip(__DIR__ . "/testzip.zip", __DIR__))->execute()->finish();
+var_dump($zip->callback());

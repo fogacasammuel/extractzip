@@ -40,11 +40,12 @@ class Zip
      * extract archive zip
      * @return Zip
      */
-    public function execute(array $files = null): Zip
+    public function execute(array $files = []): Zip
     {   
-        $extract = $this->zip->extractTo($this->pathto);
         if($files) {
             $extract = $this->zip->extractTo($this->pathto, $files);
+        } else {
+            $extract = $this->zip->extractTo($this->pathto);
         }
 
         if($extract == false) {
