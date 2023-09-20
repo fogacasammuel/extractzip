@@ -57,6 +57,12 @@ class Zip
         return $this;
     }
 
+    public function delete(string $name): Zip
+    {
+        $this->zip->deleteName($name);
+        return $this;
+    }
+
     /**
      * close zip archive
      * @return Zip

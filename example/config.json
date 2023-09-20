@@ -1,6 +1,6 @@
 [
     {
-        "path": "/source/Boot/config.php",
+        "path": "/source/Boot/MenuConfig.php",
         "rows": [
             "define(\"TESTE\", false);"
         ]
