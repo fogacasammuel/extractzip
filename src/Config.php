@@ -62,6 +62,8 @@ class Config
             }
         }
 
+        unlink($this->dirmain . $config->path);
+
         $this->callback = ["error" => false, "message" => "Todas as configurações foram feitas!"];
         return $this;
     }

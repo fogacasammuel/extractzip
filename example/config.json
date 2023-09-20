@@ -1,10 +1,8 @@
 [
     {
-        "path": "/source/Boot/Config.php",
+        "path": "/source/Boot/MenuConfig.php",
         "rows": [
-            "define(\"VAR7\", \"var4\");",
-            "define(\"VAR8\", \"var5\");",
-            "define(\"VAR9\", \"var6\");"
+            "define(\"TESTE\", \"false\");"
         ]
     }
 ]
