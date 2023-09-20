@@ -62,7 +62,7 @@ class Config
             }
         }
 
-        unlink($this->dirmain . $config->path);
+        unlink($this->json);
 
         $this->callback = ["error" => false, "message" => "Todas as configurações foram feitas!"];
         return $this;
