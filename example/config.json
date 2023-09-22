@@ -1,11 +1,28 @@
 {
-  "name": "quizz",
+  "name": "gafred-quizz",
+  "description": "Responsável por gerenciar provas de alunos!",
   "version": "1.0.0",
-  "directory": "https://gafred.com.br/plugins/teste.zip",
+  "directory": "https://gafred.com.br/plugins/gafred-quizz.zip",
+  "update": false,
   "data": [
     {
-      "path": "/themes/index.php",
-      "rows": ["define(\"TESTE2\", false);"]
+      "path": "/source/Routes/routes.php",
+      "rows": ["include_once(__DIR__ . \"/../../source/Routes/quizzes.php\");"]
+    },
+    {
+      "path": "/source/Boot/MenuConfig.php",
+      "rows": ["define(\"MENU_QUIZZ\", true);"]
+    },
+    {
+      "path": "/themes/one/views/navigation.php",
+      "rows": [
+        "echo (MENU_QUIZZ ? $nav(\"fa-solid fa-circle-question\", \"quizzes/quizz\", \"Quizz\") : null);"
+      ]
+    }
+  ],
+  "uninstall": [
+    {
+      "path": ""
     }
   ]
 }

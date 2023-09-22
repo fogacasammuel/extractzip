@@ -66,6 +66,7 @@ class Config
             "error" => false, 
             "data" => [
                 "name" => $configs->name,
+                "description" => $configs->description, 
                 "version" => $configs->version,
                 "directory" => $configs->directory
             ]
