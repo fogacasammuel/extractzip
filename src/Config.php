@@ -43,7 +43,7 @@ class Config
     /**
      * @return Config
      */
-    public function execute(): Config
+    public function execute(bool $delete = true): Config
     {
         $json = file_get_contents($this->json);
         $configs = json_decode($json);
@@ -53,7 +53,7 @@ class Config
             return $this;
         }
 
-        foreach($configs as $config) {
+        foreach($configs->data as $config) {
             $this->getRow($this->dirmain . $config->path);
 
             foreach($config->rows as $row) {
@@ -62,9 +62,19 @@ class Config
             }
         }
 
-        unlink($this->json);
+        $this->callback = [
+            "error" => false, 
+            "data" => [
+                "name" => $configs->name,
+                "version" => $configs->version,
+                "directory" => $configs->directory
+            ]
+        ];
 
-        $this->callback = ["error" => false, "message" => "Todas as configurações foram feitas!"];
+        if($delete) {
+            unlink($this->json);
+        }
+
         return $this;
     }
 

@@ -1,8 +1,11 @@
-[
+{
+  "name": "quizz",
+  "version": "1.0.0",
+  "directory": "https://gafred.com.br/plugins/teste.zip",
+  "data": [
     {
-        "path": "/source/Boot/MenuConfig.php",
-        "rows": [
-            "define(\"TESTE\", false);"
-        ]
+      "path": "/themes/index.php",
+      "rows": ["define(\"TESTE2\", false);"]
     }
-]
+  ]
+}

@@ -57,6 +57,10 @@ class Zip
         return $this;
     }
 
+    /**
+     * @param string $name
+     * @return Zip
+     */
     public function delete(string $name): Zip
     {
         $this->zip->deleteName($name);
