@@ -25,9 +25,9 @@ class Download
      * extract archive zip
      * @return Zip
      */
-    public function execute(): Download
+    public function execute(): void
     {   
         copy($this->pathfrom, $this->pathto . "/download.zip");
-        return $this;
+        return;
     }
 }

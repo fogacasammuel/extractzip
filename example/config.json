@@ -1,23 +1,13 @@
 {
-  "name": "gafred-quizz",
-  "description": "Responsável por gerenciar provas de alunos!",
+  "name": "gestor-empty",
+  "description": "Plugin em branco apenas para testes!",
   "version": "1.0.0",
-  "directory": "https://gafred.com.br/plugins/gafred-quizz.zip",
+  "directory": "https://agenciaebenezer.com.br/gestor/widgets/gestor-empty.zip",
   "update": false,
   "data": [
     {
       "path": "/source/Routes/routes.php",
       "rows": ["include_once(__DIR__ . \"/../../source/Routes/quizzes.php\");"]
-    },
-    {
-      "path": "/source/Boot/MenuConfig.php",
-      "rows": ["define(\"MENU_QUIZZ\", true);"]
-    },
-    {
-      "path": "/themes/one/views/navigation.php",
-      "rows": [
-        "echo (MENU_QUIZZ ? $nav(\"fa-solid fa-circle-question\", \"quizzes/quizz\", \"Quizz\") : null);"
-      ]
     }
   ],
   "uninstall": [

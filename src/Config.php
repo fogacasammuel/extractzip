@@ -19,6 +19,9 @@ class Config
     /** @var int */
     private $row;
 
+    /** @var array */
+    private $data;
+
     /**
      * Config construct
      *
@@ -41,25 +44,18 @@ class Config
     }
 
     /**
-     * @return Config
+     * Open JSON Configuration
+     *
+     * @return void
      */
-    public function execute(bool $delete = true): Config
+    public function open(): void
     {
         $json = file_get_contents($this->json);
         $configs = json_decode($json);
 
         if(!$configs) {
             $this->callback = ["error" => true, "message" => "Não existe configurações para executar!"];
-            return $this;
-        }
-
-        foreach($configs->data as $config) {
-            $this->getRow($this->dirmain . $config->path);
-
-            foreach($config->rows as $row) {
-                $this->addRow($this->dirmain . $config->path, $this->row, $row);
-                $this->row++;
-            }
+            return;
         }
 
         $this->callback = [
@@ -72,11 +68,30 @@ class Config
             ]
         ];
 
-        if($delete) {
-            unlink($this->json);
+        $this->data = $configs->data;
+        return;
+    }
+
+    /**
+     * @return Config
+     */
+    public function execute(bool $delete = true): void
+    {
+        foreach($this->data as $config) {
+            $this->getRow($this->dirmain . $config->path);
+
+            foreach($config->rows as $row) {
+                $this->addRow($this->dirmain . $config->path, $this->row, $row);
+                $this->row++;
+            }
         }
 
-        return $this;
+        if($delete) {
+            unlink($this->json);
+            return;
+        }
+
+        return;
     }
 
     /**

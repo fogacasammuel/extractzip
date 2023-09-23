@@ -12,7 +12,7 @@ class Zip
     /** @var string */
     private $pathto;
 
-    /** @var */
+    /** @var bool */
     private $callback;
 
     /**
@@ -40,7 +40,7 @@ class Zip
      * extract archive zip
      * @return Zip
      */
-    public function execute(array $files = []): Zip
+    public function execute(array $files = []): void
     {   
         if($files) {
             $extract = $this->zip->extractTo($this->pathto, $files);
@@ -50,30 +50,30 @@ class Zip
 
         if($extract == false) {
             $this->callback = false;
-            return $this;
+            return;
         }
 
         $this->callback = true;
-        return $this;
+        return;
     }
 
     /**
      * @param string $name
      * @return Zip
      */
-    public function delete(string $name): Zip
+    public function delete(string $name): void
     {
         $this->zip->deleteName($name);
-        return $this;
+        return;
     }
 
     /**
      * close zip archive
      * @return Zip
      */
-    public function finish(): Zip
+    public function finish(): void
     {
         $this->zip->close();
-        return $this;
+        return;
     }
 }
